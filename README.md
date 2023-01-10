@@ -55,10 +55,68 @@ after build process above code will be changed to
 {/if}
 ```
 
+## Example
+
+```svelte
+<div class="actions">
+    <button if={user.hasAccess('add-item')}>
+        Add
+    </button>
+    <button if={user.hasAccess('edit-item')}>
+        Edit
+    </button>
+    <button if={user.isAdmin()}>
+        Remove
+    </button>
+</div>
+```
+
+after if processor:
+```svelte
+<div class="actions">
+    {#if user.hasAccess('add-item')}
+    <button>
+        Add
+    </button>
+    {/if}
+    {#if user.hasAccess('edit-item')}
+    <button>
+        Edit
+    </button>
+    {/if}
+    {#if user.isAdmin()}
+    <button>
+        Remove
+    </button>
+    {/if}
+</div>
+```
 ### limitations:
 one problem of using if processor is typescript hints, which there are ways to support if prop for components and DOM elements.
 
 // TODO
+
+another problem is when you use ifProcessor with slot prop in same element:
+
+```svelte
+<Card>
+    <div if={hasHeader} slot="header">
+        Header
+    </div>
+    Body
+</Card>
+```
+
+```svelte
+<Card>
+    {#if hasHeader}
+        <div slot="header"> <!-- cannot have slot="**" inside if conditions -->
+            Header
+        </div>
+    {/if}
+    Body
+</Card>
+```
 
 
 ## Preview Processor
