@@ -91,12 +91,20 @@ after if processor:
     {/if}
 </div>
 ```
+
+### typescript support:
+you can add if as an attribute for all HTML Elements by adding below code in `*.d.ts` file in your project.
+
+```ts
+declare	namespace svelte.JSX {
+    interface HTMLAttributes<T> {
+        if?: boolean
+    }
+}
+```
+
 ### limitations:
-one problem of using if processor is typescript hints, which there are ways to support if prop for components and DOM elements.
-
-// TODO
-
-another problem is when you use ifProcessor with slot prop in same element:
+one problem is that you cannot use ifProcessor with `slot` prop in same element:
 
 ```svelte
 <Card>
@@ -117,7 +125,6 @@ another problem is when you use ifProcessor with slot prop in same element:
     Body
 </Card>
 ```
-
 
 ## Preview Processor
 using this processor you can extract source code of svelte components as string.
