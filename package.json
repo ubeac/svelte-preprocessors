@@ -1,18 +1,49 @@
 {
   "name": "@ubeac/svelte-preprocessors",
   "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "description": "Collection of some useful svelte pre-processors",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publishConfig": {
 		"access": "public"
 	},
+  "keywords": [
+		"ubeac",
+		"svelte",
+		"sveltejs",
+		"sveltekit",
+		"svelte-kit",
+		"ubeac svelte",
+    "preprocessor",
+		"if preprocessor",
+		"svelte preprocessor",
+		"preview preprocessor",
+		"ubeac svelte preprocessors"
+	],
+  "homepage": "https://github.com/ubeac/svelte-preprocessors",
+  "bugs": {
+		"url": "https://github.com/ubeac/svelte/issues",
+		"email": "ap@ubeac.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ubeac/svelte.git"
+	},
   "type": "module",
+  "license": "Apache-2.0",
+  "author": "Amir Pournasserian <ap@ubeac.io>",
   "scripts": {
     "test": "node test.js"
   },
-  "dependencies": {
-    "magic-string": "^0.27.0",
+  "peerDependencies": {
     "svelte": "^3.55.0"
+  },
+  "devDependencies": {
+    "svelte": "^3.55.0"
+  },
+  "dependencies": {
+    "magic-string": "^0.27.0"
   },
   "exports": {
     ".": "./src/index.js",

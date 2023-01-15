@@ -26,7 +26,10 @@ export default {
 
 
 ## if Processor
-after installation and enabling if Processor you should be able to use if prop for all Components and elements in *.sevlte files
+if processor transforms `if={...}` props to `{#if ...}` in svelte templates for all Components and DOM Elements.
+
+
+after installation and enabling if Processor you should be able to use if prop in your .sevlte files.
 
 ```svelte
 <Button if={2 + 2 === 4}>
@@ -103,6 +106,31 @@ declare	namespace svelte.JSX {
 }
 ```
 
+also you need to ignore your editor's Intellisense errors for `if={...}` prop in Components. everything works in dev-mode and after build. only editor doesn't know that you use ifProcessor.
+
+Alternatively, you can add typing for if prop to your component.
+
+```svelte
+
+<script lang="ts">
+
+type $$Props = {
+    color: string;
+    size: string;
+    // other props
+    if: boolean
+}
+
+export let color: string = 'primary'
+export let size: string = 'md'
+// other props
+</script>
+
+<button ...>
+    <slot/>
+</button>
+```
+
 ### limitations:
 one problem is that you cannot use ifProcessor with `slot` prop in same element:
 
@@ -150,3 +178,4 @@ Preview.svelte
 ```
 [here](https://github.com/ubeac/svelte/blob/3c8fbe0196815b78ca5bce98494cfc5a58ea5de7/src/docs-components/Preview/Preview.svelte) is an example of Preview.svelte component which uses this preprocessor.   
 
+this processor is useful when you want to show source code of examples alongside live demo. [Example](https://svelte.ubeac.io/docs/components/buttons)
