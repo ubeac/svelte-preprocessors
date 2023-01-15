@@ -4,7 +4,7 @@
   "types": "./src/index.d.ts",
   "description": "Collection of some useful svelte pre-processors",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publishConfig": {
 		"access": "public"
 	},
@@ -23,12 +23,12 @@
 	],
   "homepage": "https://github.com/ubeac/svelte-preprocessors",
   "bugs": {
-		"url": "https://github.com/ubeac/svelte/issues",
+		"url": "https://github.com/ubeac/svelte-preprocessors/issues",
 		"email": "ap@ubeac.io"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ubeac/svelte.git"
+		"url": "git+https://github.com/ubeac/svelte-preprocessors.git"
 	},
   "type": "module",
   "license": "Apache-2.0",
